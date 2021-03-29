@@ -57,12 +57,13 @@
 		CE74725325BB9B7800E6C80B /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE74725225BB9B7800E6C80B /* main.swift */; };
 		CE74725725BB9C9800E6C80B /* RestaurantAppLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE74723A25BB992B00E6C80B /* RestaurantAppLib.framework */; };
 		CE74726225BC570200E6C80B /* RestaurantMenuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC89DC861171953D25935D7F /* RestaurantMenuTests.swift */; };
-		CE74726625BC5AA700E6C80B /* Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = CE74726525BC5AA700E6C80B /* Logo.png */; };
 		CE74727125BC5DBC00E6C80B /* TestImage1.png in Resources */ = {isa = PBXBuildFile; fileRef = CE74726F25BC5DBC00E6C80B /* TestImage1.png */; };
 		CE74727225BC5DBC00E6C80B /* TestImage2.png in Resources */ = {isa = PBXBuildFile; fileRef = CE74727025BC5DBC00E6C80B /* TestImage2.png */; };
 		CE74727D25BC602800E6C80B /* RestaurantMenuControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7471FD25BB890300E6C80B /* RestaurantMenuControllerTests.swift */; };
 		CE9047E825CEE8B400C28268 /* MenuItems.json in Resources */ = {isa = PBXBuildFile; fileRef = CC89D726EDB95535C5B6D0E2 /* MenuItems.json */; };
 		CE9047F125CEEA5800C28268 /* Bundle+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC89DFAA0FD6012749C48C2F /* Bundle+Ext.swift */; };
+		CEC28D7D2612246D00B87D71 /* Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = CE74726525BC5AA700E6C80B /* Logo.png */; };
+		CEC28D802612246D00B87D71 /* Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = CE74726525BC5AA700E6C80B /* Logo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -448,6 +449,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEC28D802612246D00B87D71 /* Logo.png in Resources */,
 				CE684D2625EA73B900DF12EE /* MenuItems.json in Resources */,
 				CE7471E925BB876D00E6C80B /* LaunchScreen.storyboard in Resources */,
 				CE7471E625BB876D00E6C80B /* Assets.xcassets in Resources */,
@@ -458,6 +460,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEC28D7D2612246D00B87D71 /* Logo.png in Resources */,
 				CE9047E825CEE8B400C28268 /* MenuItems.json in Resources */,
 				CE74727225BC5DBC00E6C80B /* TestImage2.png in Resources */,
 				CE74727125BC5DBC00E6C80B /* TestImage1.png in Resources */,
@@ -468,7 +471,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE74726625BC5AA700E6C80B /* Logo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

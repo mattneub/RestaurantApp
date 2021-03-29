@@ -11,7 +11,7 @@ public protocol RestaurantMenuViewModel {
 
 public class RestaurantMenuViewModelImp: RestaurantMenuViewModel {
 
-    public let logoImage: UIImage = UIImage(named: "Logo", in: Bundle(for: RestaurantMenuViewModelImp.self), with: nil)!
+    public let logoImage: UIImage = UIImage(named: "Logo", in: Bundle.currentBundle, with: nil)!
 
     public init() {
 

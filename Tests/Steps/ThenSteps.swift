@@ -128,9 +128,14 @@ class ThenSteps {
 
     func topShouldEqualBottom(_ first: UIView, _ second: Bounded) {
 
-        let firstBottom = first.convert(first.bounds.origin, to: second.coordinateSpace).y
-        let secondTop = second.bounds.maxY
-        XCTAssertTrue(comparePoints(first: firstBottom, second: secondTop), "top does not equal bottom")
+        let firstTop = first.convert(first.bounds.origin, to: second.coordinateSpace).y
+        let secondBottom = second.bounds.maxY
+
+        if(!comparePoints(first: firstTop, second: secondBottom)) {
+            print("test")
+        }
+
+        XCTAssertTrue(comparePoints(first: firstTop, second: secondBottom), "top does not equal bottom")
     }
 
     func menuList(_ rml: RestaurantMenuList, displayedItemsShouldBe menuItems: [RestaurantMenuItem]) {
@@ -147,15 +152,16 @@ class ThenSteps {
 
         // Layout properties, like frames/bounds, are floats.  However, internally UIKit lays things out in terms of integer pixels.  Empirical testing has determined that
         // the way UIKit rounds to the nearerst pixel is to always round up.  If, after taking scaling into account, a CGFloat value corresponds to, say, 8.1 pixels, UIKit
-        // will always round this up to 9 pixels.  That's what we're doing here, by calling "ceil".  Perhaps a better way to test layouts is not to try to mimic the exact
-        // math of UIKit, but instead to test up to a tolerance.  After all, we don't actually care how UIKit does its rounding.  If Apple decided to change how they round,
-        // our layout tests would break "incorrectly" (they should still pass, but don't), which makes them brittle tests.  Really, the requirement is that we get our layouts
-        // to within 1 pixel of an expected value (or, perhaps, some other tolerance.  This is an interesting conversation to have with the designer, who may have never thought
-        // about it.  Does he only really care about layouts to within 2 pixels?  Or 5 pixels?  Ultimately, the designer is the authority on this).
-        let pixelFirst = UInt(ceil(first * UIScreen.main.scale))
-        let pixelSecond = UInt(ceil(second * UIScreen.main.scale))
+        // will always round this up to 9 pixels.  However, this can cause problems, especially when the screen scale is 3, due to the limited precision of floats.  Dividing
+        // then multiplying by 3 can result in a slightly larger value, which will round up by a whole pixel.  Instead, we will test up to a tolerance.  After all, we don't
+        // actually care how UIKit does its rounding.  If Apple decided to change how they round, our layout tests would break "incorrectly" (they should still pass, but don't),
+        // which makes them brittle tests.  Really, the requirement is that we get our layouts to within 1 pixel of an expected value (or, perhaps, some other tolerance.
+        // This is an interesting conversation to have with the designer, who may have never thought about it.  Does he only really care about layouts to within 2 pixels?
+        // Or 5 pixels?  Ultimately, the designer is the authority on this).
+        let pixelFirst = first * UIScreen.main.scale
+        let pixelSecond = second * UIScreen.main.scale
 
-        return pixelFirst == pixelSecond
+        return abs(pixelSecond - pixelFirst) < 1.0
     }
 
     func aspectRatiosShouldEqual(_ view: UIView, _ image: UIImage) {

@@ -257,12 +257,12 @@ class GivenSteps {
 
     func testImage() -> UIImage {
 
-        UIImage(named: "TestImage1", in: Bundle(for: GivenSteps.self), with: nil)!
+        UIImage(named: "TestImage1", in: Bundle.currentBundle, with: nil)!
     }
 
     func differentTestImage() -> UIImage {
 
-        UIImage(named: "TestImage2", in: Bundle(for: GivenSteps.self), with: nil)!
+        UIImage(named: "TestImage2", in: Bundle.currentBundle, with: nil)!
     }
 
     func logoImageView(_ rma: RestaurantMenuController) -> UIImageView {
@@ -272,7 +272,7 @@ class GivenSteps {
 
     func logoImage() -> UIImage {
 
-        UIImage(named: "Logo", in: Bundle(for: RestaurantMenuController.self), with: nil)!
+        UIImage(named: "Logo", in: Bundle.currentBundle, with: nil)!
     }
 
     func mobileApp() -> AppDelegate {
