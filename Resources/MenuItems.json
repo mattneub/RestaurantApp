@@ -1,0 +1,9 @@
+[
+  {"name":"Tacos", "type": "entree"},
+  {"name":"Burrito", "type": "entree"},
+  {"name":"Enchilada", "type": "entree"},
+  {"name":"Queso", "type": "appetizer"},
+  {"name":"Salsa", "type": "condiment"},
+  {"name":"Carnitas", "type": "entree"},
+  {"name":"Sopaipillas", "type": "dessert"}
+]
