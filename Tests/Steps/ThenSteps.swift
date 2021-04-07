@@ -11,7 +11,11 @@ class ThenSteps {
 
     func currentActivityShouldBe(_ app: AppDelegate, _ activity: UIViewController) {
 
-        let window = app.window
+        guard let window = app.window else {
+            XCTFail("No window")
+            return
+        }
+        
         guard window.isKeyWindow else {
             XCTFail("Window is not key")
             return

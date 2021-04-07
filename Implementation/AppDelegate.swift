@@ -11,13 +11,14 @@ import UIKit
 // I don't know of a way to use the attribute to reference an AppDelegate class defined somewhere else, so I just provided an old-fashioned main.swift instead.
 public class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    public let window = UIWindow()
+    public var window : UIWindow?
 
     public func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-        window.makeKeyAndVisible()
+        window = UIWindow()
+        window?.makeKeyAndVisible()
 
-        window.rootViewController = RestaurantMenuController()
+        window?.rootViewController = RestaurantMenuController()
 
         return true
     }
