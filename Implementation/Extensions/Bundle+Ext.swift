@@ -10,7 +10,8 @@ extension Bundle {
 
         if ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] != nil {
 
-            return Bundle(identifier: "com.biteinteractive.RestaurantAppAcceptanceTests")!
+            return Bundle(for: NSClassFromString("RestaurantAppTests.BDDTest")!.self)
+
         }
 
         return Bundle.main
