@@ -8,11 +8,7 @@ extension UIImage {
 
     public func isSameImageAs(_ otherImage: UIImage) -> Bool {
 
-        guard let data = pngData(),
-              let otherData = otherImage.pngData() else {
-            return false
-        }
+        otherImage.isEqual(self)
 
-        return data == otherData
     }
 }
