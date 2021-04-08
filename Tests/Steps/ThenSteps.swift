@@ -130,11 +130,6 @@ class ThenSteps {
 
         let firstTop = first.convert(first.bounds.origin, to: second.coordinateSpace).y
         let secondBottom = second.bounds.maxY
-
-        if(!comparePoints(first: firstTop, second: secondBottom)) {
-            print("test")
-        }
-
         XCTAssertTrue(comparePoints(first: firstTop, second: secondBottom), "top does not equal bottom")
     }
 
