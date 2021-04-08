@@ -28,7 +28,7 @@ class RestaurantMenuAcceptanceTests: BDDTest {
     // production code and make sure it handles them correctly.
     func testMenuActivityLogoLayout() {
 
-        let screens = (0..<10).map { i -> UIScreenMock in given.screen() }
+        let screens : [UIScreenMock] = (0..<10).map { _ in given.screen() }
 
         for screen in screens {
 
@@ -38,9 +38,9 @@ class RestaurantMenuAcceptanceTests: BDDTest {
 
             when.activityIsLaidOutIn(rma, screen)
 
-            then.topsShouldEqual(liv, screen)
-            then.leftsShouldEqual(liv, screen)
-            then.rightsShouldEqual(liv, screen)
+            then.topsShouldEqual(liv, .screen(screen))
+            then.leftsShouldEqual(liv, .screen(screen))
+            then.rightsShouldEqual(liv, .screen(screen))
             then.aspectRatiosShouldEqual(liv, li)
         }
     }
@@ -57,10 +57,10 @@ class RestaurantMenuAcceptanceTests: BDDTest {
 
             when.activityIsLaidOutIn(rma, screen)
 
-            then.topShouldEqualBottom(rml, liv)
-            then.leftsShouldEqual(rml, screen)
-            then.rightsShouldEqual(rml, screen)
-            then.bottomsShouldEqual(rml, screen)
+            then.topShouldEqualBottom(rml, .view(liv))
+            then.leftsShouldEqual(rml, .screen(screen))
+            then.rightsShouldEqual(rml, .screen(screen))
+            then.bottomsShouldEqual(rml, .screen(screen))
         }
     }
 }

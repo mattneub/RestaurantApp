@@ -105,30 +105,30 @@ class ThenSteps {
         XCTAssertEqual(viewModel.items, expectedItems, "Menu items are not equal")
     }
 
-    func topsShouldEqual(_ first: UIView, _ second: Bounded) {
+    func topsShouldEqual(_ first: UIView, _ second: ViewOrScreen) {
 
-        let firstTop = first.convert(first.bounds.origin, to: second.coordinateSpace).y
+        let firstTop = first.convert(first.bounds.origin, to: second).y
         let secondTop = second.bounds.minY
         XCTAssertTrue(comparePoints(first: firstTop, second: secondTop), "tops are not equal")
     }
 
-    func leftsShouldEqual(_ first: UIView, _ second: Bounded) {
+    func leftsShouldEqual(_ first: UIView, _ second: ViewOrScreen) {
 
-        let firstLeft = first.convert(first.bounds.origin, to: second.coordinateSpace).x
+        let firstLeft = first.convert(first.bounds.origin, to: second).x
         let secondLeft = second.bounds.minX
         XCTAssertTrue(comparePoints(first: firstLeft, second: secondLeft), "lefts are not equal")
     }
 
-    func rightsShouldEqual(_ first: UIView, _ second: Bounded) {
+    func rightsShouldEqual(_ first: UIView, _ second: ViewOrScreen) {
 
-        let firstRight = first.convert(first.bounds.origin, to: second.coordinateSpace).x + first.frame.size.width
+        let firstRight = first.convert(first.bounds.origin, to: second).x + first.frame.size.width
         let secondRight = second.bounds.maxX
         XCTAssertTrue(comparePoints(first: firstRight, second: secondRight), "rights are not equal")
     }
 
-    func topShouldEqualBottom(_ first: UIView, _ second: Bounded) {
+    func topShouldEqualBottom(_ first: UIView, _ second: ViewOrScreen) {
 
-        let firstTop = first.convert(first.bounds.origin, to: second.coordinateSpace).y
+        let firstTop = first.convert(first.bounds.origin, to: second).y
         let secondBottom = second.bounds.maxY
 
         if(!comparePoints(first: firstTop, second: secondBottom)) {
@@ -143,9 +143,9 @@ class ThenSteps {
         XCTAssertEqual(rml.viewModel.items, menuItems, "Menu items are not equal")
     }
 
-    func bottomsShouldEqual(_ first: UIView, _ second: Bounded) {
+    func bottomsShouldEqual(_ first: UIView, _ second: ViewOrScreen) {
 
-        XCTAssertEqual(first.convert(first.bounds.origin, to: second.coordinateSpace).y + first.frame.size.height, second.bounds.maxY, "bottoms are not equal")
+        XCTAssertEqual(first.convert(first.bounds.origin, to: second).y + first.frame.size.height, second.bounds.maxY, "bottoms are not equal")
     }
 
     func comparePoints(first: CGFloat, second: CGFloat) -> Bool {
